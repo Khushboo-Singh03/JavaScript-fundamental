@@ -26,6 +26,13 @@
                     src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
                     alt="river">
             </li>
+            <!-- <li>
+                <img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="owl" 
+                    onclick="alert('owl')" ----------  this is approach is not feasible 
+                    >
+            </li> -->
             <li>
                 <img width="200px" id="owl"
                     src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
@@ -45,18 +52,60 @@
 
 <script>
 
-// document.getElementById('owl').onclick = function(){
-//     alert(`owl clicked`)
-// }
+    // document.getElementById('owl').onclick = function(){      // this is not good practice give less features
+    //     alert(`owl clicked`)
+    // }
 
-// attachEvent()
-// jQuery - on
+    // attachEvent()
+    // jQuery - on
+    // type, timeStamp, defaultPrevented,
+    // target, toElement, srcELement, currentTarget,
+    // clientX, clientY, screenX, scrrenY,
+    // altKey, cltKey, shiftKey, keyCode
 
-document.getElementById('owl').addEventListener('click', function(e){
-    console.log(e);
-}, false)
 
 
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     console.log('Clicked inside the URL');
+    // }, false)
+
+
+    // document.getElementById('owl').addEventListener('click', function (e) {
+    //     // debugger;
+    //     // console.log('Click timestamp:', e.timeStamp);
+    //     // console.log('Click srcElement :', e.srcElement.attributes.id);
+    //     // console.log('Click srcElement :', e.srcElement.attributes.src);
+    //     // console.log('Events:', e);
+    //     console.log('Owl Clicked');
+    //     e.stopPropagation();
+    // }, false)
+
+    //  document.getElementById('google').addEventListener('click', function (e) {
+    //      e.preventDefault();
+    //      e.stopPropagation();
+    //     console.log('Google Clicked',);
+    // }, false)
+
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     // console.log('Events on Owl Images',);
+    // }, true)
+
+    // document.getElementById('owl').addEventListener('click', function (e) {
+    //     // console.log('Events:', e);
+    // }, true)
+
+
+    const imageHide = document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e);
+        // console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            console.log("id",e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+            // removeIt.parentNode.removeChild(removeIt)
+        }
+    }, false)
 
 </script>
 
